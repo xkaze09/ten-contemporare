@@ -128,30 +128,6 @@
 (function initHeroVideo() {
   const video = document.getElementById('heroVideo');
   if (!video) return;
-
-  let lastTs = null;
-  let rafId  = null;
-
-  function stepReverse(ts) {
-    if (lastTs === null) lastTs = ts;
-    const delta = (ts - lastTs) / 1000;
-    lastTs = ts;
-    video.currentTime = Math.max(0, video.currentTime - delta);
-    if (video.currentTime <= 0) {
-      lastTs = null;
-      cancelAnimationFrame(rafId);
-      video.play().catch(() => {});
-      return;
-    }
-    rafId = requestAnimationFrame(stepReverse);
-  }
-
-  video.addEventListener('ended', () => {
-    video.pause();
-    lastTs = null;
-    rafId  = requestAnimationFrame(stepReverse);
-  });
-
   const tryPlay = () => { if (video.paused) video.play().catch(() => {}); };
   video.addEventListener('canplay', tryPlay, { once: true });
   tryPlay();
