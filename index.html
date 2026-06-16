@@ -7,13 +7,14 @@
   <meta name="description" content="Ten Contemporare presents Filipino contemporary art with the seriousness it deserves. Gallery spaces in Pasig and Quezon City, Metro Manila.">
   <meta property="og:title" content="Ten Contemporare — Filipino Contemporary Art Gallery">
   <meta property="og:description" content="A gallery that presents Filipino contemporary art through a lens of permanence. Metro Manila.">
-  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:image" content="https://tencontemporare.com/og-image.jpg">
   <meta property="og:url" content="https://tencontemporare.com/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="main.css">
+  <script>(function(){var t=localStorage.getItem('tc-theme');if(t)document.documentElement.setAttribute('data-theme',t);}());</script>
 
   <script type="application/ld+json">
   {
@@ -45,10 +46,8 @@
 </head>
 <body>
 
-<!-- Skip link (keyboard accessibility) -->
 <a href="#hero" class="skip-link">Skip to content</a>
 
-<!-- Loader -->
 <div id="loader">
   <div class="loader-content">
     <span class="loader-wordmark">Ten Contemporare</span>
@@ -59,34 +58,32 @@
   </div>
 </div>
 
-<!-- Scroll Progress -->
 <div id="scrollProgress"></div>
 
-<!-- Navbar -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="Ten Contemporare Home">
+    <a href="/" class="nav-logo" aria-label="Ten Contemporare Home">
       <span class="nav-logo-text">Ten Contemporare</span>
     </a>
     <div class="nav-links">
-      <a href="#exhibitions">Exhibitions</a>
-      <a href="#artists">Artists</a>
+      <a href="/exhibitions">Exhibitions</a>
+      <a href="/artists">Artists</a>
       <a href="#collect">Collect</a>
-      <a href="#about">About</a>
+      <a href="/about">About</a>
       <a href="#collect" class="nav-cta">Begin Collecting</a>
     </div>
+    <button class="theme-toggle" role="switch" aria-checked="false" aria-label="Switch to dark mode"></button>
     <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
       <span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#exhibitions" class="mm-link">Exhibitions</a>
-  <a href="#artists" class="mm-link">Artists</a>
+  <a href="/exhibitions" class="mm-link">Exhibitions</a>
+  <a href="/artists" class="mm-link">Artists</a>
   <a href="#collect" class="mm-link">Collect</a>
-  <a href="#about" class="mm-link">About</a>
+  <a href="/about" class="mm-link">About</a>
   <a href="#collect" class="mm-link mm-cta">Begin Collecting</a>
 </div>
 
@@ -94,7 +91,6 @@
      HERO — Looping video bg
 ════════════════════════════ -->
 <section id="hero">
-  <!-- Looping background video — replace src with Ten Contemporare footage -->
   <div class="hero-video-bg">
     <video
       id="heroVideo"
@@ -108,7 +104,6 @@
     ></video>
   </div>
   <div class="hero-overlay"></div>
-
   <div class="hero-top-rule"></div>
 
   <div class="hero-content">
@@ -116,7 +111,7 @@
     <h1 class="hero-title">Art that<br><em>outlasts</em><br>the moment.</h1>
     <p class="hero-statement">Ten Contemporare presents Filipino contemporary art with the seriousness it deserves. We work with a small number of artists and collectors at a time.</p>
     <div class="hero-actions">
-      <a href="#exhibitions" class="btn-primary">See Current Exhibition</a>
+      <a href="/exhibitions" class="btn-primary">See Current Exhibition</a>
       <a href="#collect" class="btn-secondary">Begin Collecting</a>
     </div>
   </div>
@@ -129,7 +124,7 @@
   <div class="hero-exhibition-bar">
     <span class="heb-label">Now Showing</span>
     <span class="heb-title">Montage — Christian Gonzales</span>
-    <a href="#exhibitions" class="heb-link">View Exhibition →</a>
+    <a href="/exhibitions" class="heb-link">View Exhibition →</a>
   </div>
 </section>
 
@@ -139,13 +134,11 @@
 <section id="artworks" class="artworks-section">
   <div class="artworks-header">
     <h2 class="section-title">The Collection</h2>
-    <a href="#collect" class="section-link">Enquire About a Work →</a>
+    <a href="/works" class="section-link">View All Works →</a>
   </div>
 
-  <!-- Row 1 — Image LEFT -->
   <div class="artwork-row">
     <div class="artwork-media">
-      <!-- PLACEHOLDER: replace with Ten Contemporare artwork photography -->
       <img src="https://www.namiart-gallery.com/cdn/shop/files/649327715_1418520780290884_9056604840774717815_n.jpg?v=1773923412" alt="Landscape Composition III — Raymond Loyola, oil on canvas, 2025" loading="lazy">
     </div>
     <div class="artwork-info">
@@ -157,7 +150,6 @@
     </div>
   </div>
 
-  <!-- Row 2 — Image RIGHT -->
   <div class="artwork-row reversed">
     <div class="artwork-media">
       <img src="https://www.namiart-gallery.com/cdn/shop/collections/Verses_Poster_1080x1350_fb8c78a2-a8cb-435d-ac41-6c112e2f1504.png?v=1769234583" alt="Study in Blue and Gold — Summer Pasana, mixed media, 2025" loading="lazy">
@@ -171,7 +163,6 @@
     </div>
   </div>
 
-  <!-- Row 3 — Image LEFT -->
   <div class="artwork-row">
     <div class="artwork-media">
       <img src="https://www.namiart-gallery.com/cdn/shop/collections/632328236_1359537512523591_3542641750037734077_n.jpg?v=1771207428" alt="Form and Memory — Jonet Carpio, oil on canvas, 2024" loading="lazy">
@@ -185,10 +176,9 @@
     </div>
   </div>
 
-  <!-- Row 4 — Image RIGHT -->
   <div class="artwork-row reversed">
     <div class="artwork-media">
-      <img src="https://www.namiart-gallery.com/cdn/shop/collections/viber_image_2026-02-19_12-42-58-503.jpg?v=1771672505" alt="Inheritance — Raymond Loyola, oil on canvas, 2024" loading="lazy">
+      <img src="https://www.namiart-gallery.com/cdn/shop/collections/viber_image_2026-02-19_12-42-58-503.jpg?v=1771672505" alt="Inheritance — Raymond Loyola, ink and watercolour, 2024" loading="lazy">
     </div>
     <div class="artwork-info">
       <span class="artwork-index">Works on Paper · 04</span>
@@ -198,7 +188,6 @@
       <a href="#collect" class="artwork-link">Inquire About This Work →</a>
     </div>
   </div>
-
 </section>
 
 <!-- ═══════════════════════════
@@ -220,7 +209,6 @@
 ════════════════════════════ -->
 <section id="exhibitions" class="exhibition-feature">
   <div class="ef-image">
-    <!-- PLACEHOLDER: replace with Ten Contemporare exhibition photography -->
     <img
       src="https://www.namiart-gallery.com/cdn/shop/files/649327715_1418520780290884_9056604840774717815_n.jpg?v=1773923412"
       alt="Montage — Christian Gonzales, 2026"
@@ -232,7 +220,7 @@
     <h2 class="ef-title"><em>Montage</em></h2>
     <p class="ef-text">Fragments of landscape, memory, and movement assembled into a sustained visual argument. Christian Gonzales' most deliberate work to date — each painting a frame in a longer sequence.</p>
     <p class="ef-dates">15 January — 15 April 2026 · Pasig & Quezon City</p>
-    <a href="#" class="btn-primary">View Exhibition</a>
+    <a href="/exhibitions" class="btn-primary">View Exhibition</a>
   </div>
 </section>
 
@@ -242,14 +230,12 @@
 <section class="exhibitions-section">
   <div class="section-header">
     <h2 class="section-title">Past Exhibitions</h2>
-    <a href="#" class="section-link">View Archive →</a>
+    <a href="/exhibitions" class="section-link">View Archive →</a>
   </div>
 
   <div class="pe-grid">
-
-    <a href="#" class="pe-card">
+    <a href="/exhibitions" class="pe-card">
       <div class="pe-img-wrap">
-        <!-- PLACEHOLDER: replace with Ten Contemporare exhibition photography -->
         <img src="https://www.namiart-gallery.com/cdn/shop/collections/viber_image_2026-02-19_12-42-58-503.jpg?v=1771672505" alt="Spaces and Stories" loading="lazy">
       </div>
       <div class="pe-info">
@@ -259,7 +245,7 @@
       </div>
     </a>
 
-    <a href="#" class="pe-card">
+    <a href="/exhibitions" class="pe-card">
       <div class="pe-img-wrap">
         <img src="https://www.namiart-gallery.com/cdn/shop/collections/632328236_1359537512523591_3542641750037734077_n.jpg?v=1771207428" alt="Impulses" loading="lazy">
       </div>
@@ -270,7 +256,7 @@
       </div>
     </a>
 
-    <a href="#" class="pe-card">
+    <a href="/exhibitions" class="pe-card">
       <div class="pe-img-wrap">
         <img src="https://www.namiart-gallery.com/cdn/shop/collections/Verses_Poster_1080x1350_fb8c78a2-a8cb-435d-ac41-6c112e2f1504.png?v=1769234583" alt="Verses" loading="lazy">
       </div>
@@ -281,7 +267,7 @@
       </div>
     </a>
 
-    <a href="#" class="pe-card">
+    <a href="/exhibitions" class="pe-card">
       <div class="pe-img-wrap">
         <img src="https://www.namiart-gallery.com/cdn/shop/collections/rn-image_picker_lib_temp_151c6193-0bd0-4a9e-b04f-ff30f1b91f20.jpg?v=1773409877" alt="Horizons In Between" loading="lazy">
       </div>
@@ -291,7 +277,6 @@
         <p class="pe-excerpt">Landscape as threshold — the edge between the visible and the unknown.</p>
       </div>
     </a>
-
   </div>
 </section>
 
@@ -301,14 +286,12 @@
 <section id="artists" class="artists-section">
   <div class="section-header">
     <h2 class="section-title">The Artists</h2>
-    <a href="#" class="section-link">Full Roster →</a>
+    <a href="/artists" class="section-link">Full Roster →</a>
   </div>
 
   <div class="artists-grid">
-
-    <a href="#" class="artist-card">
+    <a href="/artists" class="artist-card">
       <div class="ac-img-wrap">
-        <!-- PLACEHOLDER: replace with Ten Contemporare artist portrait -->
         <img src="https://www.namiart-gallery.com/cdn/shop/collections/Raymond_Loyola.jpg?v=1719797313" alt="Raymond Loyola" loading="lazy">
       </div>
       <div class="ac-info">
@@ -319,7 +302,7 @@
       </div>
     </a>
 
-    <a href="#" class="artist-card">
+    <a href="/artists" class="artist-card">
       <div class="ac-img-wrap">
         <img src="https://www.namiart-gallery.com/cdn/shop/collections/Summer_Pasana.png?v=1705711338" alt="Summer Pasana" loading="lazy">
       </div>
@@ -331,7 +314,7 @@
       </div>
     </a>
 
-    <a href="#" class="artist-card">
+    <a href="/artists" class="artist-card">
       <div class="ac-img-wrap">
         <img src="https://www.namiart-gallery.com/cdn/shop/files/IMG_5144.jpg?v=1762338025" alt="Jonet Carpio" loading="lazy">
       </div>
@@ -342,182 +325,6 @@
         <p class="ac-statement">His references are literary and historical. Each painting contains more information than it first appears to offer — look longer.</p>
       </div>
     </a>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     COLLECT — Acquisition funnel
-════════════════════════════ -->
-<section id="collect" class="collect-section">
-  <div class="collect-inner">
-
-    <div class="collect-intro">
-      <span class="eyebrow gold">Collect</span>
-      <h2 class="collect-headline">The acquisition<br>journey begins here.</h2>
-      <p class="collect-subtext">For serious collectors and those acquiring their first work. We take the same care with both. Tell us where you are — we'll take it from there.</p>
-    </div>
-
-    <div class="funnel" id="collectFunnel">
-
-      <!-- Step 1: Intent -->
-      <div class="funnel-step active" data-step="1">
-        <div class="funnel-progress">
-          <div class="fp-dot active"></div>
-          <div class="fp-dot"></div>
-          <div class="fp-dot"></div>
-          <div class="fp-dot"></div>
-        </div>
-        <h3 class="funnel-question">What brings you here?</h3>
-        <p class="funnel-hint">Select one — this helps us point you in the right direction.</p>
-        <div class="funnel-options">
-          <button class="funnel-option" data-value="specific">
-            <span class="fo-text">I'm looking for a specific work</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="start">
-            <span class="fo-text">I want to start collecting</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="institution">
-            <span class="fo-text">I represent an institution or corporation</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="research">
-            <span class="fo-text">I'm researching an artist</span>
-            <span class="fo-arrow">→</span>
-          </button>
-        </div>
-        <div class="funnel-nav">
-          <button class="btn-primary" onclick="funnelNext()">Continue</button>
-        </div>
-      </div>
-
-      <!-- Step 2: Area of interest -->
-      <div class="funnel-step" data-step="2">
-        <div class="funnel-progress">
-          <div class="fp-dot done"></div>
-          <div class="fp-dot active"></div>
-          <div class="fp-dot"></div>
-          <div class="fp-dot"></div>
-        </div>
-        <h3 class="funnel-question">What interests you?</h3>
-        <p class="funnel-hint">Select what draws you — we'll narrow from here.</p>
-        <div class="funnel-options">
-          <button class="funnel-option" data-value="figurative">
-            <span class="fo-text">Painting — figurative</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="abstract">
-            <span class="fo-text">Painting — abstract</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="paper">
-            <span class="fo-text">Works on paper</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="sculpture">
-            <span class="fo-text">Sculpture</span>
-            <span class="fo-arrow">→</span>
-          </button>
-          <button class="funnel-option" data-value="open">
-            <span class="fo-text">I'm open to a recommendation</span>
-            <span class="fo-arrow">→</span>
-          </button>
-        </div>
-        <div class="funnel-nav">
-          <button class="btn-primary" onclick="funnelNext()">Continue</button>
-          <button class="btn-ghost" onclick="funnelBack()">← Back</button>
-        </div>
-      </div>
-
-      <!-- Step 3: What matters -->
-      <div class="funnel-step" data-step="3">
-        <div class="funnel-progress">
-          <div class="fp-dot done"></div>
-          <div class="fp-dot done"></div>
-          <div class="fp-dot active"></div>
-          <div class="fp-dot"></div>
-        </div>
-        <h3 class="funnel-question">What matters to you?</h3>
-        <p class="funnel-hint">Select all that apply.</p>
-        <div class="funnel-checks">
-          <label class="funnel-check">
-            <div class="fc-box"></div>
-            <span class="fc-label">Provenance and full documentation</span>
-          </label>
-          <label class="funnel-check">
-            <div class="fc-box"></div>
-            <span class="fc-label">Long-term investment potential</span>
-          </label>
-          <label class="funnel-check">
-            <div class="fc-box"></div>
-            <span class="fc-label">A specific price range</span>
-          </label>
-          <label class="funnel-check">
-            <div class="fc-box"></div>
-            <span class="fc-label">An artist I already know</span>
-          </label>
-          <label class="funnel-check">
-            <div class="fc-box"></div>
-            <span class="fc-label">Something I haven't seen before</span>
-          </label>
-        </div>
-        <div class="funnel-nav">
-          <button class="btn-primary" onclick="funnelNext()">Continue</button>
-          <button class="btn-ghost" onclick="funnelBack()">← Back</button>
-        </div>
-      </div>
-
-      <!-- Step 4: Contact -->
-      <div class="funnel-step" data-step="4">
-        <div class="funnel-progress">
-          <div class="fp-dot done"></div>
-          <div class="fp-dot done"></div>
-          <div class="fp-dot done"></div>
-          <div class="fp-dot active"></div>
-        </div>
-        <h3 class="funnel-question">How do we reach you?</h3>
-        <p class="funnel-hint">We respond within 48 hours. No follow-up sequences, no sales calls.</p>
-        <form class="funnel-form" id="collectForm" onsubmit="funnelSubmit(event)">
-          <div class="ff-field">
-            <label class="ff-label" for="ff-name">Name</label>
-            <input class="ff-input" id="ff-name" type="text" placeholder="Your name" required autocomplete="name">
-          </div>
-          <div class="ff-field">
-            <label class="ff-label" for="ff-email">Email</label>
-            <input class="ff-input" id="ff-email" type="email" placeholder="you@example.com" required autocomplete="email">
-          </div>
-          <div class="ff-field">
-            <label class="ff-label" for="ff-phone">Phone <span style="opacity:0.45;">(optional)</span></label>
-            <input class="ff-input" id="ff-phone" type="tel" placeholder="+63" autocomplete="tel">
-          </div>
-          <div class="ff-field">
-            <label class="ff-label" for="ff-note">Anything else</label>
-            <input class="ff-input" id="ff-note" type="text" placeholder="A work you have in mind, a budget, a question">
-          </div>
-          <div class="funnel-nav">
-            <button type="submit" class="btn-primary">Send Enquiry</button>
-            <button type="button" class="btn-ghost" onclick="funnelBack()">← Back</button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Step 5: Thank you -->
-      <div class="funnel-step" data-step="5">
-        <div class="funnel-progress">
-          <div class="fp-dot done"></div>
-          <div class="fp-dot done"></div>
-          <div class="fp-dot done"></div>
-          <div class="fp-dot done"></div>
-        </div>
-        <div class="funnel-thankyou">
-          <h3 class="fty-title">We'll be in touch.</h3>
-          <p class="fty-text">Expect a reply within 48 hours. In the meantime, take time with the work — there's no rush here.</p>
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -526,7 +333,6 @@
 ════════════════════════════ -->
 <section id="about" class="about-section">
   <div class="about-image">
-    <!-- PLACEHOLDER: replace with Ten Contemporare gallery interior photography -->
     <img
       src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=1200&q=80"
       alt="Ten Contemporare gallery interior"
@@ -562,23 +368,23 @@
       </div>
       <div class="footer-col">
         <span class="fc-label">Exhibitions</span>
-        <a href="#exhibitions">Current Exhibition</a>
-        <a href="#exhibitions">Archive</a>
-        <a href="#collect">Upcoming Shows</a>
+        <a href="/exhibitions">Current Exhibition</a>
+        <a href="/exhibitions">Archive</a>
+        <a href="/#collect">Upcoming Shows</a>
       </div>
       <div class="footer-col">
         <span class="fc-label">Gallery</span>
-        <a href="#artists">The Artists</a>
-        <a href="#collect">Collect</a>
-        <a href="#about">About</a>
-        <a href="#about">Visit</a>
+        <a href="/artists">The Artists</a>
+        <a href="/works">The Collection</a>
+        <a href="/about">About</a>
+        <a href="/visit">Visit</a>
       </div>
       <div class="footer-col">
         <span class="fc-label">Contact</span>
         <a href="mailto:hello@tencontemporare.com">hello@tencontemporare.com</a>
         <a href="tel:+639260668995">+63 926 066 8995</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://instagram.com/tencontemporare" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/tencontemporare" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -588,8 +394,9 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
