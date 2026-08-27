@@ -522,6 +522,7 @@
 <button class="cw-launcher" id="cwLauncher" aria-label="Open gallery assistant" aria-expanded="false">
   <img src="/assets/10c-logo.jpg" alt="" class="cw-launcher-logo" aria-hidden="true">
   <span class="cw-launcher-x" aria-hidden="true"></span>
+  <span class="cw-badge" id="cwBadge" aria-hidden="true">1</span>
 </button>
 <div class="cw-panel" id="cwPanel" role="dialog" aria-label="Ten Contemporare Gallery Assistant" aria-hidden="true">
   <div class="cw-head">
@@ -547,8 +548,12 @@
   const panel     = document.getElementById('cwPanel');
   const messages  = document.getElementById('cwMessages');
   const input     = document.getElementById('cwInput');
+  const badge     = document.getElementById('cwBadge');
   let isOpen      = false;
   let greeted     = false;
+
+  /* Pop the "online" badge in shortly after each page load */
+  setTimeout(() => { if (badge && !isOpen) badge.classList.add('show'); }, 1600);
 
   function openWidget() {
     isOpen = true;
@@ -556,6 +561,7 @@
     launcher.setAttribute('aria-expanded', 'true');
     panel.classList.add('open');
     panel.setAttribute('aria-hidden', 'false');
+    if (badge) badge.classList.remove('show');
     input.focus();
     if (!greeted) { greeted = true; addBotMessage(KNOWLEDGE[0].text, KNOWLEDGE[0].replies); }
   }
