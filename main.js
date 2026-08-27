@@ -140,7 +140,7 @@
   <div class="cm-backdrop" id="cmBackdrop"></div>
   <div class="cm-panel">
     <div class="cm-left">
-      <div class="cm-logo"><img src="/10c-logo.jpg" alt="Ten Contemporare"></div>
+      <div class="cm-logo"><img src="/assets/10c-logo.jpg" alt="Ten Contemporare"></div>
       <div class="cm-left-quote"><p>"A considered<br>acquisition is<br>a permanent one."</p></div>
       <div class="cm-left-foot">Ten Contemporare · Metro Manila</div>
     </div>
@@ -421,7 +421,7 @@
 (function initLogo() {
   function logoImg(cls, alt, ariaHidden) {
     const el = document.createElement('img');
-    el.src = '/10c-logo.jpg';
+    el.src = '/assets/10c-logo.jpg';
     el.alt = alt || '';
     el.className = cls;
     if (ariaHidden) el.setAttribute('aria-hidden', 'true');
@@ -520,12 +520,12 @@
   /* ── Inject widget HTML ── */
   document.body.insertAdjacentHTML('beforeend', `
 <button class="cw-launcher" id="cwLauncher" aria-label="Open gallery assistant" aria-expanded="false">
-  <img src="/10c-logo.jpg" alt="" class="cw-launcher-logo" aria-hidden="true">
+  <img src="/assets/10c-logo.jpg" alt="" class="cw-launcher-logo" aria-hidden="true">
   <span class="cw-launcher-x" aria-hidden="true"></span>
 </button>
 <div class="cw-panel" id="cwPanel" role="dialog" aria-label="Ten Contemporare Gallery Assistant" aria-hidden="true">
   <div class="cw-head">
-    <img src="/10c-logo.jpg" alt="" class="cw-head-logo" aria-hidden="true">
+    <img src="/assets/10c-logo.jpg" alt="" class="cw-head-logo" aria-hidden="true">
     <div class="cw-head-info">
       <span class="cw-head-name">Ten Contemporare</span>
       <span class="cw-head-sub">Gallery Assistant</span>
