@@ -65,6 +65,7 @@
   const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
   function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
   requestAnimationFrame(raf);
+  window.__lenis = lenis;
 })();
 
 /* ── Theme Toggle ── */
@@ -228,6 +229,7 @@
   const collected  = { intent: '', interest: '', priorities: [] };
 
   function openModal() {
+    if (window.__lenis) window.__lenis.stop();
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     setTimeout(() => document.getElementById('cmClose').focus(), 400);
@@ -235,12 +237,28 @@
   function closeModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (window.__lenis) window.__lenis.start();
   }
   function goToStep(n) {
-    steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step) === n));
-    currentStep = n;
+    const current = funnel.querySelector('.cm-step.active');
+    const next    = funnel.querySelector('.cm-step[data-step="' + n + '"]');
+    if (!next || next === current) return;
     const right = modal.querySelector('.cm-right');
-    if (right) right.scrollTop = 0;
+
+    function activateNext() {
+      steps.forEach(s => s.classList.remove('active', 'leaving'));
+      next.classList.add('active');
+      currentStep = n;
+      if (right) right.scrollTop = 0;
+    }
+
+    if (current) {
+      current.classList.remove('active');
+      current.classList.add('leaving');
+      setTimeout(activateNext, 170);
+    } else {
+      activateNext();
+    }
   }
 
   document.getElementById('cmClose').addEventListener('click', closeModal);
@@ -856,6 +874,39 @@
   enter('.about-title', '.about-content', { y: 56, dur: 1.0, delay: 0.28 });
   enter(document.querySelectorAll('.about-body, .about-quote, .about-section .btn-primary'),
     '.about-content', { y: 28, stagger: 0.14, dur: 0.85, ease: EASE, delay: 0.4 });
+
+  /* Artist bio pages — profile block */
+  document.querySelectorAll('.artist-full').forEach(sec => {
+    const img  = sec.querySelector('.artist-full-img');
+    const meta = sec.querySelector('.artist-full-meta');
+    if (img) curtainUp(img, sec);
+    if (!meta) return;
+    const eyebrow = meta.querySelector('.eyebrow');
+    const name    = meta.querySelector('.artist-full-name');
+    if (eyebrow) enter(eyebrow, sec, { y: 18, dur: 0.65, ease: EASE, delay: 0.2 });
+    if (name)    enter(name,    sec, { y: 56, dur: 1.0,             delay: 0.3  });
+    enter(meta.querySelectorAll('.artist-full-medium, .artist-full-bio, .artist-full-quote, .artist-full-cv, .btn-primary'),
+      sec, { y: 24, stagger: 0.1, dur: 0.8, ease: EASE, delay: 0.42 });
+  });
+
+  /* Artist bio pages — Available Works / Related Collection card grids */
+  document.querySelectorAll('.works-grid').forEach(grid => {
+    gsap.from(grid.querySelectorAll('.work-card'), {
+      y: 56, opacity: 0, scale: 0.96, duration: 0.85, ease: SPRING,
+      stagger: { each: 0.12, from: 'start' },
+      scrollTrigger: { trigger: grid, start: 'top 84%', once: true },
+    });
+  });
+
+  /* Artist slideshow (/artists) — animate the first slide in on load, not scroll */
+  const firstSlide = document.querySelector('.as-slide.is-active');
+  if (firstSlide) {
+    gsap.fromTo(firstSlide.querySelector('.eyebrow'),   { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.65, ease: EASE,   delay: 0.35 });
+    gsap.fromTo(firstSlide.querySelector('.as-name'),    { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.9,  ease: SPRING, delay: 0.5  });
+    gsap.fromTo(firstSlide.querySelector('.as-medium'),  { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6,  ease: EASE,   delay: 0.68 });
+    gsap.fromTo(firstSlide.querySelector('.as-excerpt'), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7,  ease: EASE,   delay: 0.78 });
+    gsap.fromTo(firstSlide.querySelector('.btn-primary'),{ opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6,  ease: EASE,   delay: 0.92 });
+  }
 
   /* Generic inner-page reveal rows */
   document.querySelectorAll('.reveal-row').forEach(row => {

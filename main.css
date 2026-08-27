@@ -1252,8 +1252,7 @@ html[data-theme="dark"] .theme-toggle::after {
 .cm-logo img {
   width: 80px;
   height: auto;
-  opacity: 0.9;
-  filter: brightness(0) invert(1);
+  border-radius: 6px;
 }
 .cm-left-quote { margin: 2rem 0; }
 .cm-left-quote p {
@@ -1314,11 +1313,19 @@ html[data-theme="dark"] .theme-toggle::after {
 .cm-step { display: none; }
 .cm-step.active {
   display: block;
-  animation: cmStepIn 0.35s cubic-bezier(0.16,1,0.3,1);
+  animation: cmStepIn 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.cm-step.leaving {
+  display: block;
+  animation: cmStepOut 0.18s cubic-bezier(0.4,0,1,1) forwards;
 }
 @keyframes cmStepIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cmStepOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-10px); }
 }
 
 .cm-prog-wrap {
@@ -1380,12 +1387,14 @@ html[data-theme="dark"] .theme-toggle::after {
   text-align: left;
   cursor: pointer;
   font-family: 'DM Sans', sans-serif;
-  transition: padding-left 0.2s, background 0.2s;
+  transition: padding-left 0.32s cubic-bezier(0.16,1,0.3,1), background 0.32s cubic-bezier(0.16,1,0.3,1), transform 0.15s cubic-bezier(0.16,1,0.3,1);
 }
 .cm-opt:hover { padding-left: 0.5rem; background: rgba(14,14,12,0.015); }
 .cm-opt.selected { padding-left: 0.5rem; background: rgba(14,14,12,0.03); }
-.cm-opt-text { font-size: 0.93rem; font-weight: 300; color: var(--black); }
-.cm-opt-arr  { font-size: 0.7rem; color: var(--gold); opacity: 0; transition: opacity 0.2s, transform 0.2s; }
+.cm-opt:active { transform: scale(0.99); }
+.cm-opt-text { font-size: 0.93rem; font-weight: 300; color: var(--black); transition: color 0.25s ease; }
+.cm-opt.selected .cm-opt-text { color: var(--black); }
+.cm-opt-arr  { font-size: 0.7rem; color: var(--gold); opacity: 0; transform: translateX(-4px); transition: opacity 0.32s cubic-bezier(0.16,1,0.3,1), transform 0.32s cubic-bezier(0.16,1,0.3,1); }
 .cm-opt:hover .cm-opt-arr,
 .cm-opt.selected .cm-opt-arr { opacity: 1; transform: translateX(4px); }
 
@@ -1400,27 +1409,32 @@ html[data-theme="dark"] .theme-toggle::after {
   padding: 1.1rem 0;
   border-bottom: 1px solid var(--border);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.28s cubic-bezier(0.16,1,0.3,1), transform 0.15s cubic-bezier(0.16,1,0.3,1);
 }
 .cm-check:hover { background: rgba(14,14,12,0.02); }
+.cm-check:active { transform: scale(0.99); }
 .cm-chk-box {
   width: 14px;
   height: 14px;
   border: 1px solid rgba(14,14,12,0.25);
   flex-shrink: 0;
   position: relative;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.25s cubic-bezier(0.16,1,0.3,1), border-color 0.25s cubic-bezier(0.16,1,0.3,1);
 }
 .cm-check.checked .cm-chk-box { background: var(--black); border-color: var(--black); }
-.cm-check.checked .cm-chk-box::after {
+.cm-chk-box::after {
   content: '';
   position: absolute;
   left: 3px; top: 6px;
   width: 8px; height: 1px;
   background: var(--white);
-  transform: rotate(-45deg) translate(-2px,-2px);
+  transform-origin: left center;
+  transform: rotate(-45deg) translate(-2px,-2px) scale(0);
   box-shadow: 4px 0 0 var(--white);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
 }
+.cm-check.checked .cm-chk-box::after { opacity: 1; transform: rotate(-45deg) translate(-2px,-2px) scale(1); }
 .cm-chk-lbl { font-size: 0.9rem; font-weight: 300; color: var(--black); }
 
 .cm-field {
