@@ -519,6 +519,10 @@
 
   /* ── Inject widget HTML ── */
   document.body.insertAdjacentHTML('beforeend', `
+<div class="cw-teaser" id="cwTeaser" role="status">
+  <button class="cw-teaser-close" id="cwTeaserClose" aria-label="Dismiss message">×</button>
+  <p>Have a question about the collection? I'm here to help.</p>
+</div>
 <button class="cw-launcher" id="cwLauncher" aria-label="Open gallery assistant" aria-expanded="false">
   <img src="/assets/10c-logo.jpg" alt="" class="cw-launcher-logo" aria-hidden="true">
   <span class="cw-launcher-x" aria-hidden="true"></span>
@@ -544,16 +548,39 @@
   </div>
 </div>`);
 
-  const launcher  = document.getElementById('cwLauncher');
-  const panel     = document.getElementById('cwPanel');
-  const messages  = document.getElementById('cwMessages');
-  const input     = document.getElementById('cwInput');
-  const badge     = document.getElementById('cwBadge');
-  let isOpen      = false;
-  let greeted     = false;
+  const launcher    = document.getElementById('cwLauncher');
+  const panel       = document.getElementById('cwPanel');
+  const messages    = document.getElementById('cwMessages');
+  const input       = document.getElementById('cwInput');
+  const badge       = document.getElementById('cwBadge');
+  const teaser      = document.getElementById('cwTeaser');
+  const teaserClose = document.getElementById('cwTeaserClose');
+  let isOpen        = false;
+  let greeted       = false;
+  let teaserTimer   = null;
 
-  /* Pop the "online" badge in shortly after each page load */
-  setTimeout(() => { if (badge && !isOpen) badge.classList.add('show'); }, 1600);
+  function hideTeaser() {
+    if (teaser) teaser.classList.remove('show');
+    if (teaserTimer) { clearTimeout(teaserTimer); teaserTimer = null; }
+  }
+
+  /* Pop the "online" badge + attention ring shortly after each page load */
+  setTimeout(() => {
+    if (isOpen) return;
+    if (badge) badge.classList.add('show');
+    launcher.classList.add('pulse');
+    setTimeout(() => launcher.classList.remove('pulse'), 3600);
+  }, 1600);
+
+  /* Proactive message bubble — a beat after the badge, auto-dismisses if ignored */
+  setTimeout(() => {
+    if (isOpen || !teaser) return;
+    teaser.classList.add('show');
+    teaserTimer = setTimeout(hideTeaser, 9000);
+  }, 2300);
+
+  if (teaser) teaser.addEventListener('click', () => { hideTeaser(); openWidget(); });
+  if (teaserClose) teaserClose.addEventListener('click', e => { e.stopPropagation(); hideTeaser(); });
 
   function openWidget() {
     isOpen = true;
@@ -562,6 +589,7 @@
     panel.classList.add('open');
     panel.setAttribute('aria-hidden', 'false');
     if (badge) badge.classList.remove('show');
+    hideTeaser();
     input.focus();
     if (!greeted) { greeted = true; addBotMessage(KNOWLEDGE[0].text, KNOWLEDGE[0].replies); }
   }
