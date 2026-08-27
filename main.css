@@ -2437,4 +2437,147 @@ html[data-theme="dark"] .artwork-status.sold { border-color: rgba(248,247,244,0.
   margin-bottom: 1.25rem;
 }
 .artwork-status.available { background: rgba(14,14,12,0.06); color: rgba(14,14,12,0.55); }
+
+/* ═══════════════════════════
+   ARTIST SLIDESHOW (/artists)
+════════════════════════════ */
+.artist-slider {
+  position: relative;
+  height: 82vh;
+  min-height: 560px;
+  max-height: 760px;
+  overflow: hidden;
+  background: var(--dark-bg);
+}
+.as-track { position: relative; width: 100%; height: 100%; }
+
+.as-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s cubic-bezier(0.16,1,0.3,1);
+}
+.as-slide.is-active { opacity: 1; visibility: visible; z-index: 2; }
+
+.as-media { position: absolute; inset: 0; overflow: hidden; }
+.as-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.0);
+  transition: transform 7s linear;
+}
+.as-slide.is-active .as-media img { transform: scale(1.08); }
+
+.as-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10,10,9,0.8) 0%, rgba(10,10,9,0.4) 42%, rgba(10,10,9,0.08) 68%),
+    linear-gradient(to top, rgba(10,10,9,0.6) 0%, transparent 40%);
+}
+
+.as-content {
+  position: absolute;
+  left: 0; bottom: 0;
+  max-width: 480px;
+  padding: 3.5rem 3rem;
+  z-index: 3;
+}
+.as-content .eyebrow.gold { color: var(--gold); }
+.as-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.4rem, 4.6vw, 3.75rem);
+  line-height: 1.05;
+  color: var(--white);
+  margin: 0.9rem 0 0.5rem;
+}
+.as-medium {
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(248,247,244,0.55);
+  margin-bottom: 1.25rem;
+}
+.as-excerpt {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(248,247,244,0.75);
+  max-width: 420px;
+  margin-bottom: 2rem;
+}
+
+.as-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(248,247,244,0.25);
+  background: rgba(248,247,244,0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(248,247,244,0.9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  transition: background 0.2s, border-color 0.2s;
+}
+.as-arrow:hover { background: rgba(248,247,244,0.22); border-color: rgba(248,247,244,0.45); }
+.as-arrow svg { width: 18px; height: 18px; }
+.as-prev { left: 1.5rem; }
+.as-next { right: 1.5rem; }
+
+.as-dots {
+  position: absolute;
+  right: 3rem;
+  bottom: 2.25rem;
+  display: flex;
+  gap: 0.6rem;
+  z-index: 4;
+}
+.as-dot {
+  width: 34px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(248,247,244,0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.as-dot-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: var(--gold);
+}
+.as-dot.is-active .as-dot-fill { animation: asDotFill 6s linear forwards; }
+
+@keyframes asDotFill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .as-media img { transition: none; }
+  .as-slide.is-active .as-media img { transform: none; }
+  .as-dot.is-active .as-dot-fill { animation: none; transform: scaleX(1); }
+}
+
+@media (max-width: 768px) {
+  .artist-slider { height: 78vh; min-height: 520px; }
+  .as-content { padding: 2rem 1.5rem; max-width: 100%; }
+  .as-excerpt { display: none; }
+  .as-arrow { width: 38px; height: 38px; }
+  .as-prev { left: 0.75rem; }
+  .as-next { right: 0.75rem; }
+  .as-dots { right: 1.5rem; bottom: 1.25rem; }
+}
+
+html[data-theme="dark"] .artist-slider { background: #0a0a09; }
 .artwork-status.sold      { background: rgba(14,14,12,0.04); color: rgba(14,14,12,0.35); }
