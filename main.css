@@ -441,7 +441,7 @@ html[data-theme="dark"] .theme-toggle::after {
    HERO — Looping video bg
 ════════════════════════════ */
 #hero {
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -685,13 +685,13 @@ html[data-theme="dark"] .theme-toggle::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 4rem;
+  padding: 3rem 2.5rem;
   background: var(--white);
-  min-height: 60vh;
+  min-height: 38vh;
 }
 
 .artwork-media img {
-  max-height: 480px;
+  max-height: 360px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
@@ -931,7 +931,7 @@ html[data-theme="dark"] .theme-toggle::after {
 .exhibition-feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 80vh;
+  min-height: 52vh;
   border-top: 1px solid var(--border);
   position: relative;
   z-index: 1;
@@ -1736,7 +1736,7 @@ html[data-theme="dark"] .cw-typing        { background: rgba(248,247,244,0.06); 
 .about-image {
   position: relative;
   overflow: hidden;
-  min-height: 60vh;
+  min-height: 42vh;
   background: #e8e4df;
 }
 
@@ -1891,20 +1891,20 @@ footer {
 @media (max-width: 1024px) {
   .statement-section { grid-template-columns: 1fr; gap: 3rem; }
   .exhibition-feature { grid-template-columns: 1fr; }
-  .ef-image { min-height: 50vw; }
+  .ef-image { min-height: 40vw; }
   .ef-content { padding: 3rem; border-left: none; border-top: 1px solid var(--border); }
   .pe-grid { grid-template-columns: repeat(2, 1fr); }
   .artists-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .about-section { grid-template-columns: 1fr; }
-  .about-image { min-height: 50vw; }
+  .about-image { min-height: 40vw; }
   .about-content { padding: 4rem 3rem; border-left: none; border-top: 1px solid var(--border); }
   /* Artwork rows collapse to single column */
   .artwork-row,
   .artwork-row.reversed { grid-template-columns: 1fr; min-height: auto; }
   .artwork-row.reversed .artwork-media { order: 0; }
   .artwork-row.reversed .artwork-info  { order: 0; border-right: none; border-left: none; }
-  .artwork-media { min-height: 60vw; }
+  .artwork-media { min-height: 45vw; }
   .artwork-info  { padding: 3rem; border-left: none; border-top: 1px solid var(--border); }
   .scroll-animation { height: 300vh; }
 }
@@ -2186,7 +2186,7 @@ html[data-theme="dark"] .artwork-status.sold { border-color: rgba(248,247,244,0.
 /* Artist full-page cards */
 .artist-full {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 400px) 1fr;
   gap: 6rem;
   align-items: start;
   padding: 6rem 48px;
@@ -2210,7 +2210,7 @@ html[data-theme="dark"] .artwork-status.sold { border-color: rgba(248,247,244,0.
 
 /* Works grid (works.html) */
 .works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; }
-.work-card { position: relative; overflow: hidden; aspect-ratio: 3/4; background: #e8e4df; }
+.work-card { position: relative; overflow: hidden; aspect-ratio: 5/4; background: #e8e4df; }
 .work-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
 .work-card:hover img { transform: scale(1.04); }
 .work-card-overlay {
